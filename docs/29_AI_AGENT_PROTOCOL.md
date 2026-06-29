@@ -255,6 +255,22 @@ Folder structure changes
 
 ---
 
+# Database Development Workflow
+
+EduPath does not rely on Supabase CLI migrations during normal development.
+
+Instead:
+
+1. AI generates SQL scripts.
+2. SQL is reviewed.
+3. SQL is executed manually using the Supabase SQL Editor.
+4. SQL files are committed to Git.
+5. Database types are regenerated if necessary.
+
+Never assume Docker or local Supabase is available.
+
+Never require `supabase db push` unless explicitly requested.
+
 # Repository Philosophy
 
 EduPath prioritizes:

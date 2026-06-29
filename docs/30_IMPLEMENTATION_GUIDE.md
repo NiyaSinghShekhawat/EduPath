@@ -1,5 +1,209 @@
 # 30_IMPLEMENTATION_GUIDE.md
 
+
+Revised Backend Implementation Plan
+Phase 2 — Backend Foundation
+
+The backend will be implemented using a knowledge-first architecture, where the educational domain is modeled before user interactions and AI capabilities.
+
+This order ensures that the Cognitive Learning Engine, adaptive recommendations, and future AI features are built on a stable foundation.
+
+Milestone 1 — User & Authentication Foundation
+
+Objective: Establish user identity and authentication.
+
+Deliverables
+Profiles
+Authentication integration
+Automatic profile creation trigger
+User roles
+Profile metadata
+Initial RLS policies
+
+Tables
+
+profiles
+
+Status
+
+✅ Completed
+
+Milestone 2 — Knowledge Graph Foundation
+
+Objective: Model the educational domain independent of users.
+
+Deliverables
+Subjects
+Chapters
+Concepts
+Concept relationships
+Knowledge graph foundation
+
+Tables
+
+subjects
+chapters
+concepts
+concept_edges
+
+Status
+
+🚧 In Progress
+
+Milestone 3 — Learning Content
+
+Objective: Attach educational resources to concepts.
+
+Deliverables
+Resources
+Learning Paths
+Resource metadata
+Difficulty mapping
+
+Tables
+
+resources
+learning_paths
+learning_path_concepts
+Milestone 4 — Personalized Learning
+
+Objective: Track every learner's progress.
+
+Deliverables
+Concept mastery
+Study sessions
+Progress tracking
+Notes
+Bookmarks
+Revision scheduling
+
+Tables
+
+user_concepts
+study_sessions
+progress
+notes
+bookmarks
+revision_sessions
+Milestone 5 — Assessment System
+
+Objective: Evaluate learning outcomes.
+
+Deliverables
+Quiz engine
+Questions
+Attempts
+Scoring
+Analytics
+
+Tables
+
+quizzes
+questions
+quiz_attempts
+Milestone 6 — AI Memory Layer
+
+Objective: Persist AI understanding of each learner.
+
+Deliverables
+Long-term memory
+Conversation history
+Recommendations
+Learning insights
+
+Tables
+
+memory_entries
+ai_conversations
+recommendations
+Milestone 7 — Gamification
+
+Objective: Drive engagement and motivation.
+
+Deliverables
+XP system
+Achievements
+Daily missions
+Learning streaks
+Badges
+
+Tables
+
+xp_events
+achievements
+user_achievements
+daily_missions
+user_daily_missions
+Milestone 8 — Analytics & Intelligence
+
+Objective: Support adaptive learning and reporting.
+
+Deliverables
+Analytics snapshots
+Learning metrics
+Recommendation inputs
+Dashboard insights
+
+Tables
+
+analytics_snapshots
+Architectural Principles
+
+The database follows a Knowledge-First approach.
+
+Knowledge Layer
+│
+├── Subjects
+├── Chapters
+├── Concepts
+├── Concept Graph
+└── Resources
+        │
+        ▼
+Learning Layer
+│
+├── Learning Paths
+├── User Concepts
+├── Progress
+├── Study Sessions
+└── Notes
+        │
+        ▼
+Assessment Layer
+│
+├── Quizzes
+├── Questions
+└── Attempts
+        │
+        ▼
+AI Layer
+│
+├── Memory
+├── Recommendations
+└── Analytics
+        │
+        ▼
+Gamification Layer
+│
+├── XP
+├── Achievements
+├── Missions
+└── Streaks
+Development Workflow
+
+Each milestone follows the same engineering process:
+
+Design the schema.
+Generate SQL.
+Execute SQL using the Supabase SQL Editor.
+Verify tables, indexes, triggers, and policies.
+Generate TypeScript database types.
+Implement the service layer.
+Integrate with the frontend.
+Write tests.
+Update documentation.
+
+
 # EduPath Implementation Guide
 
 Version: 1.0
@@ -62,9 +266,29 @@ Completed.
 
 ## Phase 2
 
-Backend Foundation
+# Database Implementation Workflow
 
-Supabase
+Each database milestone follows this order.
+
+1. Design schema.
+
+2. Generate SQL.
+
+3. Save SQL inside:
+
+supabase/sql/
+
+4. Execute SQL using the Supabase Dashboard SQL Editor.
+
+5. Verify schema using the Table Editor.
+
+6. Generate database types.
+
+7. Commit SQL scripts.
+
+The SQL scripts inside the repository represent the official schema.
+
+Supabase CLI migrations are optional.
 
 Authentication
 

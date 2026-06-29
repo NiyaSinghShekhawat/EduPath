@@ -62,8 +62,17 @@ Frontend
 
 Backend
 
-* Supabase
-* PostgreSQL
+- Supabase (Cloud Project)
+- PostgreSQL
+- SQL Editor–First Workflow
+
+Database changes are managed through the Supabase Dashboard SQL Editor.
+
+SQL scripts are stored under:
+
+supabase/sql/
+
+The repository SQL files are considered the canonical schema.
 
 State
 
