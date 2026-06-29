@@ -1,0 +1,9 @@
+{
+  "phase": "0",
+  "sprint": "Setup",
+  "status": "In Progress",
+  "currentTask": "Configure project foundation",
+  "nextTask": "Supabase setup",
+  "branch": "feature/project-setup",
+  "lastUpdated": "2026-06-29"
+}
