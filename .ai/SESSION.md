@@ -1,8 +1,6 @@
-# SESSION.md
+# EduPath — Current Session State
 
-# EduPath Development Session
-
-Date: 2026-06-29
+**Last Updated:** 2026-06-29
 
 ---
 
@@ -10,149 +8,281 @@ Date: 2026-06-29
 
 Phase 2 — Backend Foundation
 
----
+Project status:
 
-# Current Sprint
-
-Sprint 1 — Backend Infrastructure
-
-Status: In Progress
+🟢 Active Development
 
 ---
 
 # Completed
 
-* ✅ Engineering Handbook (30 documents)
-* ✅ Product architecture finalized
-* ✅ Cognitive Learning Engine architecture completed
-* ✅ AI Agent architecture completed
-* ✅ Design System files completed
-* ✅ Product Lexicon completed
-* ✅ Technology Stack finalized
-* ✅ AI Agent Protocol created
-* ✅ AI onboarding files created
-* ✅ Next.js project initialized
-* ✅ TypeScript configured
-* ✅ Tailwind CSS configured
-* ✅ shadcn/ui configured
-* ✅ GitHub repository initialized
-* ✅ Supabase project created
-* ✅ Supabase connected to the repository
+## Repository
+
+- Repository initialized
+- Git configured
+- Documentation finalized
+- AI context documents completed
+- Engineering handbook completed
+- AI protocol completed
 
 ---
 
-# Current Task
+## Project Setup
 
-Design the complete backend architecture before implementing features.
-
-Immediate priorities:
-
-1. Database Blueprint
-2. Authentication Architecture
-3. Database Migrations
-4. Row Level Security
-5. Storage Strategy
-6. Type Generation
-7. Service Layer
+- Next.js configured
+- TypeScript configured
+- Tailwind CSS configured
+- ESLint configured
+- Prettier configured
 
 ---
 
-# Next Task
+## Supabase
 
-Create the Database Blueprint and Entity Relationship Diagram.
-
-Define:
-
-* Core entities
-* Relationships
-* Foreign keys
-* Indexes
-* Security policies
-
-No application features should be implemented before the database design is finalized.
+- Supabase project created
+- Environment variables configured
+- Authentication configured
+- Supabase client initialized
+- Server client initialized
+- Middleware configured
+- Database type generation configured
 
 ---
 
-# Current Tech Stack
+## Database
 
-Frontend
+Database workflow:
 
-* Next.js
-* React
-* TypeScript
-* Tailwind CSS
-* shadcn/ui
+**Supabase Dashboard SQL Editor First**
 
-Backend
+CLI migrations are **not** used.
 
-* Supabase
-* PostgreSQL
+All schema changes are stored inside:
 
-State
+supabase/sql/
 
-* Zustand
-* TanStack Query
-
-AI
-
-* OpenAI
-* LangGraph
-* LangChain
-
-Deployment
-
-* Vercel
+The SQL files are the canonical representation of the schema.
 
 ---
 
-# Architectural Principles
+## SQL Files Completed
 
-* Engineering First
-* Documentation Driven
-* Feature-first Architecture
-* Strict TypeScript
-* Server Components by default
-* Business logic belongs in services
-* Components remain presentation-focused
-* Documentation is the source of truth
+- ✅ 001_enums.sql
+- ✅ 002_profiles.sql
+- ✅ 003_learning_structure.sql
+- ✅ 004_user_progress.sql
+- ✅ 005_assessment.sql
+- ✅ 006_ai_memory.sql
+- ✅ 007_gamification.sql
 
----
-
-# Pending Decisions
-
-* Final database schema
-* Storage bucket organization
-* AI memory persistence strategy
-* Vector database integration approach
+All corresponding tables have been successfully created in the hosted Supabase project.
 
 ---
 
-# Known Issues
+## Database Status
 
-None
+Completed:
+
+- ENUM types
+- User profiles
+- Subjects
+- Chapters
+- Concepts
+- Concept graph
+- User progress
+- Study sessions
+- Assessments
+- AI memory
+- Gamification foundation
+
+Triggers created.
+
+Indexes created.
+
+RLS enabled where required.
 
 ---
 
-# Current Branch
+# Architecture
 
-feature/backend-foundation
+EduPath follows a **Knowledge-First Architecture**.
+
+Knowledge Graph
+
+Subject
+
+↓
+
+Chapter
+
+↓
+
+Concept
+
+↓
+
+Concept Graph
+
+↓
+
+Resources
+
+↓
+
+Learning Paths
+
+↓
+
+User Learning
+
+↓
+
+Assessment
+
+↓
+
+AI Memory
+
+↓
+
+Gamification
+
+Do not redesign this architecture.
 
 ---
 
-# Definition of Done for Sprint 1
+# Source of Truth
 
-* Database architecture finalized
-* Authentication configured
-* Initial migrations created
-* RLS policies implemented
-* Storage configured
-* Generated TypeScript database types
-* Service layer scaffolded
+Priority:
+
+1. docs/
+2. AI_CONTEXT.md
+3. AGENTS.md
+4. CLAUDE.md / GEMINI.md
+5. SQL schema
+
+Never contradict these documents.
+
+---
+
+# Current Goal
+
+Begin backend implementation.
+
+Priority order:
+
+1. Authentication
+2. Subject API
+3. Chapter API
+4. Concept API
+5. Learning Graph services
+6. User Progress services
+
+No frontend work unless required.
+
+---
+
+# Backend Rules
+
+Use:
+
+- Next.js App Router
+- Server Components where appropriate
+- Supabase
+- TypeScript
+- Feature-first architecture
+
+Business logic belongs inside:
+
+edupath/features/*/services/
+
+Keep controllers thin.
+
+---
+
+# Database Rules
+
+Never modify the database manually without also updating:
+
+supabase/sql/
+
+SQL files remain the canonical schema.
+
+Do not introduce ORM layers.
+
+Use Supabase directly.
+
+---
+
+# AI Agent Instructions
+
+When continuing development:
+
+- Read AGENTS.md first.
+- Read AI_CONTEXT.md.
+- Read IMPLEMENTATION_GUIDE.md.
+- Continue from current implementation.
+- Never regenerate existing documentation.
+- Never rewrite architecture.
+- Never redesign the database.
+- Preserve project conventions.
+
+Focus only on implementing the next backend milestone.
+
+---
+
+# Immediate Next Task
+
+Implement Authentication Module.
+
+Includes:
+
+- Sign Up
+- Sign In
+- Sign Out
+- Session handling
+- Protected routes
+- Profile retrieval
+- Auth service
+
+After authentication:
+
+Implement Subject API.
+
+Then:
+
+Chapter API.
+
+Then:
+
+Concept API.
 
 ---
 
 # Notes
 
-This sprint focuses exclusively on building a production-ready backend foundation. Frontend feature development begins only after backend contracts and data models are stable.
+This repository uses an engineering-first workflow.
 
-End of Session.
+Implementation must follow the documentation.
+
+Do not make architectural decisions without updating the documentation.
+
+The goal is to build EduPath incrementally while preserving consistency between:
+
+Documentation
+
+↓
+
+Database
+
+↓
+
+Backend
+
+↓
+
+Frontend
+
+↓
+
+AI Agents
